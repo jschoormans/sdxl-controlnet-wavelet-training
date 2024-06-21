@@ -1,0 +1,7 @@
+data_folder
+densepose-controlnet-training
+*.pyc
+downloaded_images
+model_out
+logs
+wandb
