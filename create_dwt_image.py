@@ -82,4 +82,16 @@ for file in files:
         reconstructed.save('downloaded_images/' + file.replace('.png', '_dwt2_thr.png'))
     except: 
         print(f"Error processing {file}")
+        
+        if False: 
+            # this should only be done if the  bpip2 is created -- 
+            # remove the image
+            os.remove('downloaded_images/' + file)
+            # in data_blip2.csv, remove the row with the file name
+            import pandas as pd
+            df = pd.read_csv('data_blip2.csv')
+            df = df[df['file_name'] != file]
+            df.to_csv('data_blip2.csv', index=False)
+            
+        
         continue
